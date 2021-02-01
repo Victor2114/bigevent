@@ -1,7 +1,7 @@
 <!--
  * @author: Victor
  * @Date: 2021-02-01 11:45:36
- * @LastEditTime: 2021-02-01 16:35:06
+ * @LastEditTime: 2021-02-01 16:37:21
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -87,7 +87,7 @@
               type="password"
               name="password"
               required
-              lay-verify="required"
+              lay-verify="required|pwd"
               placeholder="请输入密码"
               autocomplete="off"
               class="layui-input"
@@ -100,7 +100,7 @@
               type="password"
               name="repassword"
               required
-              lay-verify="required"
+              lay-verify="required|pwd|repwd"
               placeholder="请再次输入密码"
               autocomplete="off"
               class="layui-input"
