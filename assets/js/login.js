@@ -1,15 +1,15 @@
 /*
  * @author: Victor
  * @Date: 2021-02-01 14:04:39
- * @LastEditTime: 2021-02-01 15:59:10
+ * @LastEditTime: 2021-02-02 15:26:36
  */
 $(function () {
   // 注册登录切换
-  $('#loginBtn').click(function () {
+  $('#regLink').click(function () {
     $('.login-box').hide();
     $('.register-box').show();
   });
-  $('#regBtn').click(function () {
+  $('#loginLink').click(function () {
     $('.register-box').hide();
     $('.login-box').show();
   });
@@ -28,7 +28,7 @@ $(function () {
       // 还需要拿到密码框中的内容
       // 然后进行一次等于的判断
       // 如果判断失败,则return一个提示消息即可
-      var pwd = $('.reg-box [name=password]').val();
+      var pwd = $('.register-box [name=password]').val();
       if (pwd !== value) {
         return '两次密码不一致！';
       }
@@ -36,13 +36,13 @@ $(function () {
   });
 
   // 监听注册表单的提交事件
-  $('#form_reg').on('submit', function (e) {
+  $('#form-reg').on('submit', function (e) {
     // 1. 阻止默认的提交行为
     e.preventDefault();
     // 2. 发起Ajax的POST请求
     var data = {
-      username: $('#form_reg [name=username]').val(),
-      password: $('#form_reg [name=password]').val(),
+      username: $('#form-reg [name=username]').val(),
+      password: $('#form-reg [name=password]').val(),
     };
     $.post('/api/reguser', data, function (res) {
       if (res.status !== 0) {
@@ -50,12 +50,12 @@ $(function () {
       }
       layer.msg('注册成功，请登录！');
       // 模拟人的点击行为
-      $('#link_login').click();
+      $('#loginLink').click();
     });
   });
 
   // 监听登录表单的提交事件
-  $('#form_login').submit(function (e) {
+  $('#form-login').submit(function (e) {
     // 阻止默认提交行为
     e.preventDefault();
     $.ajax({
